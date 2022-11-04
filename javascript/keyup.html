@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyup Test - Javascript</title>
+
+    <meta name="author" content="Amit Gupta">
+    <meta name="keywords" content="html, javascript, test code">
+    <meta name="description" content="This is a test program to check the JavaScript key-up event code. - By 1amitgupta">
+
+    <link rel="shortcut icon" href="../assets/f1mate.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+
+<body>
+    <div class="align-center">
+        <h1>Keyup Test - Javascript</h1>
+    </div>
+
+    <div>
+        <strong>Keyup Logs: </strong> <input type="text" />
+
+        <div id="keyLog"></div>
+
+    </div>
+
+
+    <script>
+        const logArr = [];
+        document.body.addEventListener('keyup', (e) => {
+            logArr.push({
+                key: e.key,
+                which: e.which,
+                keyCode: e.keyCode,
+                charCode: e.charCode
+            });
+            const list = logArr.reverse().map(item => {
+                return `<tr><td>${item.key}</td><td>${item.which}</td><td>${item.keyCode}</td><td>${item.charCode}</td></tr>`;
+            });
+            document.getElementById('keyLog').innerHTML = `<table class="table align-center"><thead><th>key</th><th>which</th><th>keyCode</th><th>charCode</th></thead><tbody>${list.join('')}</tbody></table>`;
+        })
+    </script>
+</body>
+
+</html>
